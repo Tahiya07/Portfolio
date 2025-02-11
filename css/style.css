@@ -2,7 +2,6 @@ body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
-
 .layout_margin {
   margin-top: 90px;
   margin-bottom: 90px;
@@ -72,7 +71,7 @@ body {
 }
 
 .detail_box_common {
-  background-color:lightgreen;
+  background-color:#acf3e2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,7 +85,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #ffffff;
+  color: black;
 }
 
 .text_center {
@@ -233,7 +232,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color:lightgreen;
+  background-color:#acf3e2;
   overflow-x: hidden;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -317,7 +316,6 @@ a:focus {
 
 /*end header section*/
 .slider_section {
-  background-image: url(../images/slider-bg.jpg);
   background-size: cover;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -352,7 +350,9 @@ a:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #eee;
+    background-image: url(../images/Pngtree.jpg);
+  background-size: cover;
+  background-attachment: fixed;;
   padding: 0;
 }
 
@@ -382,10 +382,10 @@ a:focus {
 
 .slider_section .detail-box a {
   display: inline-block;
-  background-color:aquamarine;
+  background-color:#acf3e2;
   color: #ffffff;
   padding: 10px 45px;
-  border: 1px solid aquamarine;
+  border: 1px solid #acf3e2;
   border-radius: 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -394,7 +394,7 @@ a:focus {
 
 .slider_section .detail-box a:hover {
   background-color: transparent;
-  color:lightgreen;
+  color:#acf3e2;
 }
 
 .slider_section .img-box {
@@ -450,7 +450,9 @@ a:focus {
 }
 
 .about_section .detail-box {
-  background-color: aquamarine;
+    background-image: url(../images/Pngtree.jpg);
+  background-size: cover;
+  background-attachment: fixed;;
   padding: 0 20px;
 }
 
@@ -474,7 +476,7 @@ a:focus {
 .about_section .detail-box a:hover {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: aquamarine;
+  color: #acf3e2;
 }
 
 .about_section .img-box {
@@ -492,7 +494,9 @@ a:focus {
 
 .portfolio_section {
   text-align: center;
-  background-color: #e4e4e4;
+  background-image: url(../images/p1.png);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .portfolio_section .heading_container {
@@ -520,6 +524,7 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #acf3e2;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -534,13 +539,15 @@ a:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-
+.portfolio_section_text h3{
+  text-align: center;
+}
 .portfolio_section .portfolio_container .img-box .btn-box a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -553,7 +560,7 @@ a:focus {
           align-items: center;
   width: 45px;
   height: 45px;
-  background-color: #ffffff;
+  background-color: lightcyan;
   border-radius: 100%;
   background-size: 18px;
   background-position: center;
@@ -578,7 +585,6 @@ a:focus {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: lightsalmon;
   z-index: 0;
   opacity: 0;
   visibility: hidden;
@@ -618,8 +624,8 @@ a:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
+  -webkit-box-pack: inherit;
+      -ms-flex-pack: inherit;
           justify-content: stretch;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -667,8 +673,19 @@ a:focus {
 }
 
 .team_section .team_container {
+   background-image: url(../images/pngtree2.jpg);
+  background-size: cover;
+  background-attachment: fixed;
   padding: 25px 45px;
 }
+
+  .team_image {
+    max-width: 100%;
+    max-height: 500px; /* Adjust this value as needed */
+        width: auto;
+    height: auto;
+  }
+
 
 .team_section .team_box {
   position: relative;
@@ -709,7 +726,9 @@ a:focus {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
-
+.team_section .detail-box {
+  background-color: #acf3e2;
+}
 .team_section .team_box .detail-box h5 {
   font-weight: 600;
 }
