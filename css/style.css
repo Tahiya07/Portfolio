@@ -64,10 +64,14 @@ body {
 }
 
 .heading_container .heading_center {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: center;
+  margin-top: 130px;
+    font-size: 24px;
 }
 
 .detail_box_common {
@@ -445,12 +449,12 @@ a:focus {
   color: lightpink;
 }
 
-.about_section .heading_container h2 {
+.about_section .heading_container h2,h3,h4 {
   text-transform: uppercase;
 }
 
 .about_section .detail-box {
-    background-image: url(../images/Pngtree.jpg);
+  background-image: url(../images/Pngtree.jpg);
   background-size: cover;
   background-attachment: fixed;;
   padding: 0 20px;
@@ -504,7 +508,7 @@ a:focus {
 }
 
 .portfolio_section .heading_container h2::before {
-  background-color: lightsalmon;
+  background-color: white;
 }
 
 .portfolio_section p {
@@ -530,10 +534,6 @@ a:focus {
           flex-grow: 1;
 }
 
-.portfolio_section .portfolio_container .img-box img {
-  width: 100%;
-  height: 100%;
-}
 
 .portfolio_section .portfolio_container .img-box .btn-box {
   position: absolute;
@@ -545,9 +545,7 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
 }
-.portfolio_section_text h3{
-  text-align: center;
-}
+
 .portfolio_section .portfolio_container .img-box .btn-box a {
   display: -webkit-box;
   display: -ms-flexbox;

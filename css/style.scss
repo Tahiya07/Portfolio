@@ -98,11 +98,6 @@ body {
       border-radius: 10px;
     }
   }
-
-  .heading_center {
-    align-items: center;
-    text-align: center;
-  }
 }
 
 .detail_box_common {
@@ -112,11 +107,6 @@ body {
   align-items: center;
   justify-content: center;
   color: $white;
-
-}
-
-.text_center {
-  text-align: center;
 
 }
 
@@ -155,8 +145,7 @@ body {
 
 .navbar-brand {
   display: flex;
-  margin: 0;
-  margin-left: 5%;
+  margin: 0 0 0 5%;
 
   span {
     font-weight: 700;
@@ -180,7 +169,7 @@ body {
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 0px 25px;
+  padding: 0 25px;
   color: #fefeff;
   text-align: center;
   font-family: "Roboto", sans-serif;
@@ -210,7 +199,7 @@ body {
   top: 12.5px;
 
   button {
-    margin-top: 0px;
+    margin-top: 0;
     outline: none;
     border: none;
     background-color: transparent;
@@ -261,7 +250,6 @@ body {
   }
 
   a {
-    display: inline-block;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
@@ -455,7 +443,6 @@ a:focus {
 // portfolio section
 
 .portfolio_section {
-  text-align: center;
   background-color: #e4e4e4;
 
   .heading_container {
@@ -548,8 +535,8 @@ a:focus {
     .box-2,
     .box-3 {
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      flex-direction: column;
       align-items: center;
     }
 

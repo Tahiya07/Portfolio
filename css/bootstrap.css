@@ -375,11 +375,13 @@ h2, .h2 {
 }
 
 h3, .h3 {
+  font-weight: bolder;
   font-size: 1.75rem;
 }
 
 h4, .h4 {
-  font-size: 1.5rem;
+  font-weight: bolder;
+  font-size: 1.75rem;
 }
 
 h5, .h5 {
@@ -438,7 +440,7 @@ mark,
   background-color: #fcf8e3;
 }
 
-.list-unstyled {
+. list-unstyled {
   padding-left: 0;
   list-style: none;
 }
