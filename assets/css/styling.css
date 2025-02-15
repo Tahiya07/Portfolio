@@ -83,6 +83,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
@@ -10969,6 +10970,7 @@ p {
   font-size: calc(13px + (14 - 13) * ((100vw - 300px) / (1300 - 300)));
   opacity: .8;
   color: #444;
+  font-weight: 600;
 }
 
 .title {
@@ -11435,11 +11437,11 @@ pre .code {
     padding: 10px; /* Adjust the padding to control the neon spread */
     border-radius: 50%; /* Optional: Round the corners */
     box-shadow:
-        0 0 30px #acf3e2,   /* Primary neon color */
-        0 0 40px #acf3e2,
+        0 0 50px #47D8E0,   /* Primary neon color */
+        0 0 70px #acf3e2,
         0 0 80px #acf3e2,
         0 0 120px #acf3e2,
-        0 0 160px #acf3e2;
+        0 0 200px #acf3e2;
 }
 }
 .navbar .brand .brand-txt {
