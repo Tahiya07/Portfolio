@@ -1,75 +1,96 @@
-// navigation  menu js
-function openNav() {
-    $("#myNav").addClass("menu_width");
-    $(".menu_btn-style").fadeIn();
-}
-
-function closeNav() {
-    $("#myNav").removeClass("menu_width");
-    $(".menu_btn-style").fadeOut();
-}
-
-
-// get current year
-
 function displayYear() {
-    var d = new Date();
-    var currentYear = d.getFullYear();
-    document.querySelector("#displayYear").innerHTML = currentYear;
+  var el = document.getElementById("displayYear");
+  if (el) el.textContent = new Date().getFullYear();
 }
-displayYear();
 
-
-
-//client section owl carousel
-$(".owl-carousel").owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    navText: [
-        '<i class="fa fa-long-arrow-left" aria-hidden="true"></i>',
-        '<i class="fa fa-long-arrow-right" aria-hidden="true"></i>'
-    ],
-    autoplay: true,
-    autoplayHoverPause: true,
-    responsive: {
-        0: {
-            items: 1
-        },
-        768: {
-            items: 2
-        },
-        1000: {
-            items: 2
-        }
+function setupThemeToggle() {
+  var saved = localStorage.getItem("portfolio-theme");
+  if (saved === "light") document.body.setAttribute("data-theme", "light");
+  var btn = document.getElementById("themeToggleNav");
+  if (!btn) return;
+  btn.textContent = document.body.getAttribute("data-theme") === "light" ? "🌙" : "☀";
+  btn.addEventListener("click", function () {
+    var isLight = document.body.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.body.removeAttribute("data-theme");
+      localStorage.setItem("portfolio-theme", "dark");
+      btn.textContent = "☀";
+    } else {
+      document.body.setAttribute("data-theme", "light");
+      localStorage.setItem("portfolio-theme", "light");
+      btn.textContent = "🌙";
     }
-});
-
-
-// slider carousel control
-
-
-$('.slider_btn_prev').on('click', function (e) {
-    e.preventDefault()
-    $('.slider_text_carousel').carousel('prev')
-    $('.slider_image_carousel').carousel('prev')
-})
-
-
-$('.slider_btn_next').on('click', function (e) {
-    e.preventDefault()
-    $('.slider_text_carousel').carousel('next')
-    $('.slider_image_carousel').carousel('next')
-})
-
-
-/** google_map js **/
-
-function myMap() {
-    var mapProp = {
-        center: new google.maps.LatLng(40.712775, -74.005973),
-        zoom: 18,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  });
 }
+
+function setupMobileMenu() {
+  var toggle = document.querySelector(".menu-toggle");
+  var nav = document.querySelector(".nav-links");
+  if (!toggle || !nav) return;
+  toggle.addEventListener("click", function () { nav.classList.toggle("show"); });
+  nav.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () { nav.classList.remove("show"); });
+  });
+}
+
+function setupReveal() {
+  var nodes = document.querySelectorAll(".hero, .section, .card, .media-card, .site-footer");
+  nodes.forEach(function (n) { n.classList.add("reveal"); });
+  if (!("IntersectionObserver" in window)) {
+    nodes.forEach(function (n) { n.classList.add("in-view"); });
+    return;
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add("in-view");
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  nodes.forEach(function (n) { observer.observe(n); });
+}
+
+function setupHeroShuffle() {
+  var heroImage = document.getElementById("heroShuffleImage");
+  if (!heroImage) return;
+  var prevBtn = document.getElementById("heroPrev");
+  var nextBtn = document.getElementById("heroNext");
+  var dots = Array.prototype.slice.call(document.querySelectorAll(".hero-dot"));
+  var images = ["images/eita3.jpg", "images/eita2.jpg", "images/eita1.jpg", "images/eita.jpg"];
+  var index = 0;
+
+  function renderImage() {
+    heroImage.classList.add("shuffling");
+    setTimeout(function () {
+      heroImage.src = images[index];
+      heroImage.classList.remove("shuffling");
+    }, 180);
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextImage() { index = (index + 1) % images.length; renderImage(); }
+  function prevImage() { index = (index - 1 + images.length) % images.length; renderImage(); }
+
+  var timer = setInterval(nextImage, 3000);
+  function resetTimer() { clearInterval(timer); timer = setInterval(nextImage, 3000); }
+
+  if (nextBtn) nextBtn.addEventListener("click", function () { nextImage(); resetTimer(); });
+  if (prevBtn) prevBtn.addEventListener("click", function () { prevImage(); resetTimer(); });
+  dots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      var i = parseInt(dot.getAttribute("data-index"), 10);
+      if (!Number.isNaN(i)) { index = i; renderImage(); resetTimer(); }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  displayYear();
+  setupThemeToggle();
+  setupMobileMenu();
+  setupReveal();
+  setupHeroShuffle();
+});
